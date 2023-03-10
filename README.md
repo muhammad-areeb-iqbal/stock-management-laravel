@@ -29,10 +29,16 @@ composer install
 4) Decrypt .env and .env.testing using key
 ```
 php artisan env:decrypt --key=12345678901234567890123456789012
-
+```
+```
 php artisan env:decrypt --key=12345678901234567890123456789012 --env=testing
 ```
 This will created 2 files named ".env" and ".env.testing". The file .env.testing will used for test cases in seperate database.
+
+NOTE:- For Disabled the Email Feature Set value in .env file
+```
+MAIL_ENABLED=FALSE
+```
 
 5) We are using SendGrid Email You can create free account from https://signup.sendgrid.com/ and create an api key. Alternate you can use any email like mandgrill etc.
 
