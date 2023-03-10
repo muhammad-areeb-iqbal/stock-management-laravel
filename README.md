@@ -53,6 +53,7 @@ MAIL_FROM_NAME=YOUR_USERNAME
 
 6) Set DB credentials in ".env" and ".env.testing" file
 and Create relevant database. 
+
 .env:
 
 ```
