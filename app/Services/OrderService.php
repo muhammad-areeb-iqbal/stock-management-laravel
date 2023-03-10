@@ -12,7 +12,6 @@ use App\Models\Ingredient;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Str;
 use App\Jobs\SendGridEmailJob;
-use App\Exceptions\CustomException;
 
 class OrderService
 {
@@ -106,15 +105,16 @@ class OrderService
                 $is_low = false;
 
                 if( $updated_quantity < ( ( $product->ingredients->stock_capacity_in_gram * config("common.stock_alert_value") ) / 100 ) ){
-                    $is_email = true;
                     $is_low = true;
 
-                    if($product->ingredients->is_email == false){
+                    if($product->ingredients->is_email == false && config('common.low_stock_email_alert') == TRUE ){
                         /**
                          * Email sent in the background using db queue
                          *  if the limit exceed below 50%
                          * Sendgrid library using for the emails
                          */
+
+                        $is_email = true;
                         $data = [
                             'message' => "\"{$product->ingredients->name}\" ".config("common.email_message_content"),
                             'subject' => "\"{$product->ingredients->name}\" ".config("common.email_subject"),

@@ -15,4 +15,5 @@ return [
     'email_from' => env('MAIL_FROM_ADDRESS'),
     'email_from_name' => env('MAIL_FROM_NAME'),
     'random_string_len' => 10,
+    'low_stock_email_alert' => env('MAIL_ENABLED', TRUE),
 ];
