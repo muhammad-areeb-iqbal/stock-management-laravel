@@ -97,7 +97,7 @@ php artisan db:seed
 php artisan serve
 ```
 
-10) We are sending email in the background using DB queue laravel, So for that run laravel worker
+10) We are sending email in the background using DB queue laravel, So for that run laravel worker in another terminal to the same project path
 ```
 php artisan queue:work --tries=3 --timeout=30
 ```
@@ -158,7 +158,7 @@ response:
 }
 ```
 
-11) Run Test cases in laravel using different database
+11) Run Test cases in laravel using different database in another terminal
 ```
 php artisan test --env=testing
 ```
